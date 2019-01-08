@@ -25,21 +25,17 @@ var map = new ol.Map({
     overlays: [overlayPopup],
     layers: layersList,
     view: new ol.View({
-         maxZoom: 28, minZoom: 1
+        extent: [-19087582.058460, -6004869.288229, 4187678.153632, 8385869.412408], maxZoom: 21, minZoom: 2
     })
 });
 
+var layerSwitcher = new ol.control.LayerSwitcher({tipLabel: "Layers"});
+map.addControl(layerSwitcher);
+layerSwitcher.hidePanel = function() {};
+layerSwitcher.showPanel();
 
-    var searchLayer = new ol.SearchLayer({
-      layer: lyr_source_0,
-      colName: 'author',
-      zoom: 10,
-      collapsed: true,
-      map: map
-    });
 
-    map.addControl(searchLayer);
-map.getView().fit([-1330482.392943, 3832106.965977, 7612825.807049, 13015683.147462], map.getSize());
+map.getView().fit([-19087582.058460, -6004869.288229, 4187678.153632, 8385869.412408], map.getSize());
 
 var NO_POPUP = 0
 var ALL_FIELDS = 1
@@ -80,7 +76,7 @@ var featureOverlay = new ol.layer.Vector({
 });
 
 var doHighlight = true;
-var doHover = false;
+var doHover = true;
 
 var highlight;
 var onPointerMove = function(evt) {
