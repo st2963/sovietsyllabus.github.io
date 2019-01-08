@@ -7,148 +7,34 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="./resources/ol.css">
+        <link rel="stylesheet" type="text/css" href="resources/horsey.min.css">
+        <link rel="stylesheet" type="text/css" href="resources/ol3-search-layer.min.css">
         <link rel="stylesheet" href="./resources/ol3-layerswitcher.css">
         <link rel="stylesheet" href="./resources/qgis2web.css">
         <style>
         .ol-geocoder.gcd-gl-container {
-            top: 135px!important;
+            top: 100px!important;
         }
         .ol-geocoder .gcd-gl-btn {
             width: 21px!important;
             height: 21px!important;
         }
         </style>
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
         <style>
         html, body {
             background-color: #ffffff;
         }
         </style>
-
-        <style>
-        .geolocate {
-            top: 65px;
-            left: .5em;
-        }
-        .ol-touch .geolocate {
-            top: 80px;
-        }
-        </style>
     <link href="http://cdn.jsdelivr.net/openlayers.geocoder/latest/ol3-geocoder.min.css" rel="stylesheet">
-<style>
-.tooltip {
-  position: relative;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
-  color: white;
-  padding: 4px 8px;
-  opacity: 0.7;
-  white-space: nowrap;
-}
-.tooltip-measure {
-  opacity: 1;
-  font-weight: bold;
-}
-.tooltip-static {
-  background-color: #ffcc33;
-  color: black;
-  border: 1px solid white;
-}
-.tooltip-measure:before,
-.tooltip-static:before {
-  border-top: 6px solid rgba(0, 0, 0, 0.5);
-  border-right: 6px solid transparent;
-  border-left: 6px solid transparent;
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  margin-left: -7px;
-  left: 50%;
-}
-.tooltip-static:before {
-  border-top-color: #ffcc33;
-}
-.measure-control {
-  top: 100px;
-  left: .5em;
-}
-.ol-touch .measure-control {
-  top: 130px;
-}
-</style>
         <style>
         #map {
-            width: 851px;
+            width: 672px;
             height: 690px;
         }
         </style>
         <title></title>
     </head>
     <body>
-   <div align="center">     
-       <img class="wp-image-16 size-full" src="https://st2963.github.io/sovietsyllabus.github.io/sov_syl_4.jpg
-" alt="" width="653" height="262" />
-        <p>
-<td align="right" width: 653px;"><span style="font-size: 20pt; color: #ff9900; font-family: impact, sans-serif;">KEY WORKS IN HUMANITIES AND STEM </span></td>
-</p>
-                                                                                                                 
-<table>
-<table style="width: 422px;">
-    
-<tbody>
-
-<tr>
-</tr>
-<tr>
-<td style="width: 520px;"></td>
-</tr>
-<tr>
-  
-    
-   
-  <table style="background-color: #ad14db; height: 38px;" width="653">
-<tbody>
-  
-<tr>
-<td style="width: 6400px;" "text-align:center"><span style="color: #00ffff;"><p>&nbsp;</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Methodology • <em>Why 1959?</em> • Science and its discourses •  Soviet Schools of thought  • <em>About the project</em></span></td>
-</td></tr>
-</tbody>
-</table>
-<table width="640">
-        
-  <p style="text-align:justify">
-                             
-<td>This project presents the works in ground-breaking research, as for 1959. One year is chosen only for a preliminary demonstration of what the project will be. The goal is to create a dynamic map, both physical and abstract, in order to show the networks within institutions and through publishing.
-    </p>
-&nbsp;
-        <p><font color="#FF0000">Ever wondered what smart people read in the Soviet Union?</font>
-        </p>
-<p style="text-align:justify">
-                             <title>The networks of knowledge. Two points of entry.</title>
-The project features two points of entry into the data: from the perspective of city institutes, and from the scale of an author. The institute analysis is based on spatio-temporal homogeneity and it presupposes shared values and ideas between a collective. These ideas may not be clearly articulated by the authors themselves, but they reproduce those ideas as agents of their environments.
-    </p>
-&nbsp;
-<p style="text-align:justify">
-    <h1>The map</h1>
-The map shows the most important works, generated through the analysis of university and institution libraries across the Eastern bloc. The large orange titles are imported ground-breaking knowledge. Violet small titles show local "stars," who had impact mostly within their city. The number after the title is the index of how many books are available in the databases of the selected universities and institutions.
-
-The list of works does not represent the whole picture without an expert's interpretations. Thus, this map serves as a starting point to answer the question: how many schools of thought were in the Soviet Union in 1959? The classification is based on two axes: author's location and author's relation to other authors on the map (as a translator, an editor, an introductory note writer).
-    </p>
-&nbsp;
-<p style="text-align:justify">
-Search by the discipline:
-
-    #philosophy, #engineering, #archeology, #physics, #science_history ...</td></p>
-</tr>
-</tbody>
-       </table>
-</table>
-    </div>
-&nbsp;
-<div align="center">
-    <p>The map of the author that made their impact on Soviet society in 1959 and on:</p></div>
-
-&nbsp;<div align="center">
         <div id="map">
             <div id="popup" class="ol-popup">
                 <a href="#" id="popup-closer" class="ol-popup-closer"></a>
@@ -159,254 +45,15 @@ Search by the discipline:
         <script src="resources/polyfills.js"></script>
         <script src="./resources/functions.js"></script>
         <script src="./resources/ol.js"></script>
+        <script src="http://cdn.polyfill.io/v2/polyfill.min.js?features=Element.prototype.classList,URL"></script>
+        <script src="resources/horsey.min.js"></script>
+        <script src="resources/ol3-search-layer.min.js"></script>
         <script src="./resources/ol3-layerswitcher.js"></script>
     <script src="http://cdn.jsdelivr.net/openlayers.geocoder/latest/ol3-geocoder.js"></script>
-        <script src="layers/Found_at_Polytech_Kharkiv_1959_0.js"></script><script src="layers/Polytech_Kharkiv_1959_1.js"></script><script src="layers/Found_at_Telecommunication_Leningrad_1959copy_2.js"></script><script src="layers/Telecommunication_Leningrad_1959_3.js"></script><script src="layers/Found_at_Polytech_Peter_the_Great_1959copy_4.js"></script><script src="layers/Polytech_Peter_the_Great_1959_5.js"></script>
-        <script src="styles/Found_at_Polytech_Kharkiv_1959_0_style.js"></script><script src="styles/Polytech_Kharkiv_1959_1_style.js"></script><script src="styles/Found_at_Telecommunication_Leningrad_1959copy_2_style.js"></script><script src="styles/Telecommunication_Leningrad_1959_3_style.js"></script><script src="styles/Found_at_Polytech_Peter_the_Great_1959copy_4_style.js"></script><script src="styles/Polytech_Peter_the_Great_1959_5_style.js"></script>
+        <script src="layers/source_0.js"></script><script src="layers/author_loc_1.js"></script>
+        <script src="styles/source_0_style.js"></script><script src="styles/author_loc_1_style.js"></script>
         <script src="./layers/layers.js" type="text/javascript"></script> 
         <script src="./resources/qgis2web.js"></script>
         <script src="./resources/Autolinker.min.js"></script>
-    
-    </div>
-<br></br>
-<div align="center">
-<body bgcolor=white lang=EN-US style='tab-interval:1.2in'>
-
-<div class=WordSection1>
-
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
- style='margin-left:62.5pt;border-collapse:collapse;border:none;mso-border-alt:
- dashed windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt;
- mso-border-insideh:none;mso-border-insidev:none'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:73.0pt'>
-  <td width=454 valign=top style='width:454.05pt;border:dashed windowtext 1.0pt;
-  mso-border-alt:dashed windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:
-  73.0pt'>
-  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
-  style='font-size:11.0pt;mso-bidi-font-size:12.0pt'>The <span
-  style='color:#8064A2;mso-themecolor:accent4'>number</span> next to the <span
-  style='color:red'>title</span> shows the amount of books <o:p></o:p></span></i></p>
-  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
-  style='font-size:11.0pt;mso-bidi-font-size:12.0pt'><span
-  style="mso-spacerun:yes">&nbsp;</span>available across the libraries represented
-  on the map.<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span
-  style="mso-spacerun:yes">&nbsp;</span><o:p></o:p></span></i></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><o:p>&nbsp;</o:p></span></i></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:1206.5pt'>
-  <td width=454 valign=top style='width:454.05pt;border:dashed windowtext 1.0pt;
-  border-top:none;mso-border-top-alt:dashed windowtext .5pt;mso-border-alt:
-  dashed windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:1206.5pt'>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal align=center style='text-align:center'><b
-  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
-  12.0pt'>1959: Key works in popular science / science fiction<o:p></o:p></span></b></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>1. <span
-  style='color:#4F81BD;mso-themecolor:accent1'>Ross, Ashby</span>. <span
-  style='color:red'>Cybernetics</span>. [<span style='color:#8064A2;mso-themecolor:
-  accent4'>106</span>]<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>2. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>3. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-family:"Times New Roman";mso-fareast-font-family:
-  "Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal align=center style='text-align:center'><b
-  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
-  12.0pt'>Impact by city<o:p></o:p></span></b></p>
-  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal>Moscow <o:p></o:p></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt'>1.
-  <span class=SpellE><span style='color:#4F81BD;mso-themecolor:accent1'>Iodini</span></span><span
-  style='color:#4F81BD;mso-themecolor:accent1'> <span class=SpellE>Perikl</span></span>.
-  <span style='color:red'>The life of Mendeleev</span>. [<span
-  style='color:#8064A2;mso-themecolor:accent4'>62</span>]<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt'>2.
-  <span class=SpellE><span style='color:#4F81BD;mso-themecolor:accent1'>Ozhesko</span></span><span
-  style='color:#4F81BD;mso-themecolor:accent1'> <span class=SpellE>Oxana</span></span>.
-  <span style='color:red'>Argonauts</span>. [<span style='color:#8064A2;
-  mso-themecolor:accent4'>22</span>]<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt'>3.
-  <span style='color:#4F81BD;mso-themecolor:accent1'>Popov <span class=SpellE>Evgenij</span></span>.
-  <span style='color:red'>Automatic Regulations</span>. [<span
-  style='color:#8064A2;mso-themecolor:accent4'>19</span>]<o:p></o:p></span></p>
-  <table class=MsoNormalTable border=0 cellpadding=0 width=316
-   style='width:316.05pt;mso-cellspacing:1.5pt;margin-left:42.75pt;background:
-   white;mso-yfti-tbllook:1184'>
-   <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
-    height:88.4pt'>
-    <td width=313 valign=top style='width:313.05pt;padding:.75pt .75pt .75pt .75pt;
-    height:88.4pt'>
-    <p class=MsoNormal style='margin-left:56.25pt;text-align:justify;
-    text-justify:inter-ideograph'><i><span style='font-size:11.0pt;mso-bidi-font-size:
-    12.0pt;mso-fareast-font-family:"Times New Roman";color:#5F497A;mso-themecolor:
-    accent4;mso-themeshade:191'>This book introduces the elements of binary
-    coding into economic management. Unlike contemporary projects in
-    automation, Soviet economists never though of automatizing production.
-    Instead, they programmed in the fields of auto-piloting the state. This
-    books gives an insight in the first attempts to use computer in building
-    soft power in the USSR.<o:p></o:p></span></i></p>
-    </td>
-   </tr>
-  </table>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <span
-  class=SpellE><span style='color:#4F81BD;mso-themecolor:accent1'>Teplov</span></span><span
-  style='color:#4F81BD;mso-themecolor:accent1'> Lev</span>. <span
-  style='color:red'>Thermodynamics</span>. [<span style='color:#8064A2;
-  mso-themecolor:accent4'>16</span>]<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-family:"Times New Roman";mso-fareast-font-family:
-  "Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal>Leningrad (St. Petersburg)<o:p></o:p></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>1. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>2. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>3. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal>Novosibirsk</p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>1. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>2. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>3. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal>Alma-<span class=SpellE>Aty</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>1. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>2. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>3. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><span class=SpellE>Kharkiv</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>1. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>2. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>3. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal>Kyiv</p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>1. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>2. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>3. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
-  style='font-size:11.0pt;mso-bidi-font-size:12.0pt'><o:p>&nbsp;</o:p></span></i></p>
-  </td>
- </tr>
-</table>
-    </div>
-</div>
-
     </body>
 </html>
