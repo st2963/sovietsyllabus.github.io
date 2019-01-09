@@ -1,334 +1,294 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <div align="center">
-        <p style="text-align: left;"><span style="color: #6f46b3; font-size: 36pt;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SOVIET SYLLABUS</strong></span></p>
-            <p><img class="alignnone wp-image-16 size-full" src="http://blogs.cuit.columbia.edu/st2963/files/2019/01/The_Workshop-e1546926451857.png" alt="" width="653" height="179" /></p>
-<p style="text-align: center;"><span style="color: #003366;"><strong>: </strong></span><strong><span style="color: #003366;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key works in humanities and stem, year 1959</span>
-</strong></p>
-            </head>
-<title>Key works in humanities and STEM in the USSR</title>
-        <body>
-<table style="background-color: #a754de; border-color: #d4a422;"height: 38px;" width="653">
-<tbody>
-<tr>
-<td>Methodology • <span style="color: #ffffff;"><em>Why 1959?</em></span> • Science and its discourses • Soviet Schools of thought • <span style="color: #ffffff;"><em>About the project                                                       [Menu field]
-</em></span></td>
-</tr>
-</tbody>
-</table>
-
-
-         <table style="background-color: #C0C0C0; height: 38px;" width="653">
-<tbody>
-
- <p style="text-align:justify">
-                             
-<td>This project presents the works in ground-breaking research, as for 1959. One year is chosen only for a preliminary demonstration of what the project will be. The goal is to create a dynamic map, both physical and abstract, in order to show the networks within institutions and through publishing.
-    </p>
-                              
-<p>The project features two points of entry into the data: from the perspective of city institutes, and from the scale of an author. The institute analysis is based on spatio-temporal homogeneity and it presupposes shared values and ideas between a collective. These ideas may not be clearly articulated by the authors themselves, but they reproduce those ideas as agents of their environments.
-                              </p>
-<p>The map shows the most important works, generated through the analysis of university and institution libraries across the Eastern bloc. The large orange titles are imported ground-breaking knowledge. Violet small titles show local "stars," who had impact mostly within their city. The number after the title is the index of how many books are available in the databases of the selected universities and institutions. The list of works does not represent the whole picture without an expert's interpretations. Thus, this map serves as a starting point to answer the question: how many schools of thought were in the Soviet Union in 1959? The classification is based on two axes: author's location and author's relation to other authors on the map (as a translator, an editor, an introductory note writer).
-</p>
-<p>Search by the discipline: #philosophy, #engineering, #archeology, #physics, #science_history ...</p>
-</div>
-</tbody>
-</table>
-   
-   <br></br>
-   <div align="center">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="./resources/ol.css">
-        <link rel="stylesheet" href="./resources/ol3-layerswitcher.css">
-        <link rel="stylesheet" href="./resources/qgis2web.css">
-        <style>
-        .ol-geocoder.gcd-gl-container {
-            top: 65px!important;
-        }
-        .ol-geocoder .gcd-gl-btn {
-            width: 21px!important;
-            height: 21px!important;
-        }
-        </style>
-        <style>
-        html, body {
-            background-color: #ffffff;
-        }
-        </style>
-    <link href="http://cdn.jsdelivr.net/openlayers.geocoder/latest/ol3-geocoder.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
         <style>
         #map {
-            width: 800px;
-            height: 600px;
+            width: 789px;
+            height: 690px;
         }
         </style>
-        
-    
+        <title></title>
+    </head>
+    <body>
         <div id="map">
-            <div id="popup" class="ol-popup">
-                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-                <div id="popup-content"></div>
-            </div>
         </div>
-        <script src="resources/qgis2web_expressions.js"></script>
-        <script src="resources/polyfills.js"></script>
-        <script src="./resources/functions.js"></script>
-        <script src="./resources/ol.js"></script>
-        <script src="./resources/ol3-layerswitcher.js"></script>
-    <script src="http://cdn.jsdelivr.net/openlayers.geocoder/latest/ol3-geocoder.js"></script>
-        <script src="layers/Importedknowledge_0.js"></script><script src="layers/Locallyproducedknowledge_1.js"></script>
-        <script src="styles/Importedknowledge_0_style.js"></script><script src="styles/Locallyproducedknowledge_1_style.js"></script>
-        <script src="./layers/layers.js" type="text/javascript"></script> 
-        <script src="./resources/qgis2web.js"></script>
-        <script src="./resources/Autolinker.min.js"></script>
-                                                  
-</div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/shapecopy_0.js"></script>
+        <script src="data/shape_1.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[48.7369900375,20.6756198681],[54.9865604457,32.2760258069]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function pop_shapecopy_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['uni name'] !== null ? Autolinker.link(String(feature.properties['uni name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['uni librar'] !== null ? Autolinker.link(String(feature.properties['uni librar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['source_x'] !== null ? Autolinker.link(String(feature.properties['source_x'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['source_y'] !== null ? Autolinker.link(String(feature.properties['source_y'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['index'] !== null ? Autolinker.link(String(feature.properties['index'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['author'] !== null ? Autolinker.link(String(feature.properties['author'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['title_mess'] !== null ? Autolinker.link(String(feature.properties['title_mess'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['title'] !== null ? Autolinker.link(String(feature.properties['title'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['city'] !== null ? Autolinker.link(String(feature.properties['city'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pulishing_'] !== null ? Autolinker.link(String(feature.properties['pulishing_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['page_count'] !== null ? Autolinker.link(String(feature.properties['page_count'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tag1'] !== null ? Autolinker.link(String(feature.properties['tag1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tag2'] !== null ? Autolinker.link(String(feature.properties['tag2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tag3'] !== null ? Autolinker.link(String(feature.properties['tag3'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tag4'] !== null ? Autolinker.link(String(feature.properties['tag4'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tag5'] !== null ? Autolinker.link(String(feature.properties['tag5'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['publish_x'] !== null ? Autolinker.link(String(feature.properties['publish_x'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['publish_y'] !== null ? Autolinker.link(String(feature.properties['publish_y'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['author_x'] !== null ? Autolinker.link(String(feature.properties['author_x'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['author_y'] !== null ? Autolinker.link(String(feature.properties['author_y'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['affiliatio'] !== null ? Autolinker.link(String(feature.properties['affiliatio'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['relation'] !== null ? Autolinker.link(String(feature.properties['relation'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
 
-&nbsp;
-        <br></br>
-<div align="center">
-<body bgcolor=white lang=EN-US style='tab-interval:1.2in'>
+        function style_shapecopy_0_0() {
+            return {
+                pane: 'pane_shapecopy_0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(142,125,51,1.0)',
+            }
+        }
+        map.createPane('pane_shapecopy_0');
+        map.getPane('pane_shapecopy_0').style.zIndex = 400;
+        map.getPane('pane_shapecopy_0').style['mix-blend-mode'] = 'normal';
+        var layer_shapecopy_0 = new L.geoJson(json_shapecopy_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_shapecopy_0',
+            onEachFeature: pop_shapecopy_0,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_shapecopy_0_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_shapecopy_0);
+        map.addLayer(layer_shapecopy_0);
+        function pop_shape_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['uni name'] !== null ? Autolinker.link(String(feature.properties['uni name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['uni librar'] !== null ? Autolinker.link(String(feature.properties['uni librar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['source_x'] !== null ? Autolinker.link(String(feature.properties['source_x'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['source_y'] !== null ? Autolinker.link(String(feature.properties['source_y'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['index'] !== null ? Autolinker.link(String(feature.properties['index'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['author'] !== null ? Autolinker.link(String(feature.properties['author'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['title_mess'] !== null ? Autolinker.link(String(feature.properties['title_mess'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['title'] !== null ? Autolinker.link(String(feature.properties['title'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['city'] !== null ? Autolinker.link(String(feature.properties['city'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pulishing_'] !== null ? Autolinker.link(String(feature.properties['pulishing_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['page_count'] !== null ? Autolinker.link(String(feature.properties['page_count'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tag1'] !== null ? Autolinker.link(String(feature.properties['tag1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tag2'] !== null ? Autolinker.link(String(feature.properties['tag2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tag3'] !== null ? Autolinker.link(String(feature.properties['tag3'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tag4'] !== null ? Autolinker.link(String(feature.properties['tag4'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tag5'] !== null ? Autolinker.link(String(feature.properties['tag5'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['publish_x'] !== null ? Autolinker.link(String(feature.properties['publish_x'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['publish_y'] !== null ? Autolinker.link(String(feature.properties['publish_y'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['author_x'] !== null ? Autolinker.link(String(feature.properties['author_x'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['author_y'] !== null ? Autolinker.link(String(feature.properties['author_y'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['affiliatio'] !== null ? Autolinker.link(String(feature.properties['affiliatio'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['relation'] !== null ? Autolinker.link(String(feature.properties['relation'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
 
-<div class=WordSection1>
-
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
- style='margin-left:62.5pt;border-collapse:collapse;border:none;mso-border-alt:
- dashed windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt;
- mso-border-insideh:none;mso-border-insidev:none'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:73.0pt'>
-  <td width=454 valign=top style='width:454.05pt;border:dashed windowtext 1.0pt;
-  mso-border-alt:dashed windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:
-  73.0pt'>
-  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
-  style='font-size:11.0pt;mso-bidi-font-size:12.0pt'>The <span
-  style='color:#8064A2;mso-themecolor:accent4'>number</span> next to the <span
-  style='color:red'>title</span> shows the amount of books <o:p></o:p></span></i></p>
-  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
-  style='font-size:11.0pt;mso-bidi-font-size:12.0pt'><span
-  style="mso-spacerun:yes">&nbsp;</span>available across the libraries represented
-  on the map.<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span
-  style="mso-spacerun:yes">&nbsp;</span><o:p></o:p></span></i></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><o:p>&nbsp;</o:p></span></i></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:1206.5pt'>
-  <td width=454 valign=top style='width:454.05pt;border:dashed windowtext 1.0pt;
-  border-top:none;mso-border-top-alt:dashed windowtext .5pt;mso-border-alt:
-  dashed windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:1206.5pt'>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal align=center style='text-align:center'><b
-  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
-  12.0pt'>1959: Key works in popular science / science fiction<o:p></o:p></span></b></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>1. <span
-  style='color:#4F81BD;mso-themecolor:accent1'>Ross, Ashby</span>. <span
-  style='color:red'>Cybernetics</span>. [<span style='color:#8064A2;mso-themecolor:
-  accent4'>106</span>]<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>2. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>3. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-family:"Times New Roman";mso-fareast-font-family:
-  "Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal align=center style='text-align:center'><b
-  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
-  12.0pt'>Impact by city<o:p></o:p></span></b></p>
-  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal>Moscow <o:p></o:p></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt'>1.
-  <span class=SpellE><span style='color:#4F81BD;mso-themecolor:accent1'>Iodini</span></span><span
-  style='color:#4F81BD;mso-themecolor:accent1'> <span class=SpellE>Perikl</span></span>.
-  <span style='color:red'>The life of Mendeleev</span>. [<span
-  style='color:#8064A2;mso-themecolor:accent4'>62</span>]<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt'>2.
-  <span class=SpellE><span style='color:#4F81BD;mso-themecolor:accent1'>Ozhesko</span></span><span
-  style='color:#4F81BD;mso-themecolor:accent1'> <span class=SpellE>Oxana</span></span>.
-  <span style='color:red'>Argonauts</span>. [<span style='color:#8064A2;
-  mso-themecolor:accent4'>22</span>]<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt'>3.
-  <span style='color:#4F81BD;mso-themecolor:accent1'>Popov <span class=SpellE>Evgenij</span></span>.
-  <span style='color:red'>Automatic Regulations</span>. [<span
-  style='color:#8064A2;mso-themecolor:accent4'>19</span>]<o:p></o:p></span></p>
-  <table class=MsoNormalTable border=0 cellpadding=0 width=316
-   style='width:316.05pt;mso-cellspacing:1.5pt;margin-left:42.75pt;background:
-   white;mso-yfti-tbllook:1184'>
-   <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
-    height:88.4pt'>
-    <td width=313 valign=top style='width:313.05pt;padding:.75pt .75pt .75pt .75pt;
-    height:88.4pt'>
-    <p class=MsoNormal style='margin-left:56.25pt;text-align:justify;
-    text-justify:inter-ideograph'><i><span style='font-size:11.0pt;mso-bidi-font-size:
-    12.0pt;mso-fareast-font-family:"Times New Roman";color:#5F497A;mso-themecolor:
-    accent4;mso-themeshade:191'>This book introduces the elements of binary
-    coding into economic management. Unlike contemporary projects in
-    automation, Soviet economists never though of automatizing production.
-    Instead, they programmed in the fields of auto-piloting the state. This
-    books gives an insight in the first attempts to use computer in building
-    soft power in the USSR.<o:p></o:p></span></i></p>
-    </td>
-   </tr>
-  </table>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <span
-  class=SpellE><span style='color:#4F81BD;mso-themecolor:accent1'>Teplov</span></span><span
-  style='color:#4F81BD;mso-themecolor:accent1'> Lev</span>. <span
-  style='color:red'>Thermodynamics</span>. [<span style='color:#8064A2;
-  mso-themecolor:accent4'>16</span>]<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-family:"Times New Roman";mso-fareast-font-family:
-  "Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal>Leningrad (St. Petersburg)<o:p></o:p></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>1. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>2. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>3. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal>Novosibirsk</p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>1. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>2. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>3. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal>Alma-<span class=SpellE>Aty</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>1. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>2. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>3. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><span class=SpellE>Kharkiv</span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>1. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>2. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>3. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal>Kyiv</p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>1. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>2. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>3. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>4. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>5. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>6. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>7. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>8. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>9. <o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
-  mso-fareast-font-family:"Times New Roman";background:white'>10.<o:p></o:p></span></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
-  style='font-size:11.0pt;mso-bidi-font-size:12.0pt'><o:p>&nbsp;</o:p></span></i></p>
-  </td>
- </tr>
-</table>
-    </div>
-</div>
-
+        function style_shape_1_0() {
+            return {
+                pane: 'pane_shape_1',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(142,125,51,1.0)',
+            }
+        }
+        map.createPane('pane_shape_1');
+        map.getPane('pane_shape_1').style.zIndex = 401;
+        map.getPane('pane_shape_1').style['mix-blend-mode'] = 'normal';
+        var layer_shape_1 = new L.geoJson(json_shape_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_shape_1',
+            onEachFeature: pop_shape_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_shape_1_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_shape_1);
+        map.addLayer(layer_shape_1);
+        setBounds();
+        var i = 0;
+        layer_shapecopy_0.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['author'] !== null?String('<div style="color: #23c1e0; font-size: 16pt; font-weight: bold; font-style: italic; font-family: \'Gill Sans\', sans-serif;">' + layer.feature.properties['author']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_shapecopy_0'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_shape_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['title'] !== null?String('<div style="color: #c91a60; font-size: 22pt; font-weight: bold; font-family: \'Eurostile\', sans-serif;">' + layer.feature.properties['title']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_shape_1'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_shapecopy_0,layer_shape_1]);
+        map.on("zoomend", function(){
+            resetLabels([layer_shapecopy_0,layer_shape_1]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_shapecopy_0,layer_shape_1]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_shapecopy_0,layer_shape_1]);
+        });
+        </script>
     </body>
 </html>
